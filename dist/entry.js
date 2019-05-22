@@ -3422,29 +3422,30 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 //https://app.syncta.com/en/tests/1003948
-// export const url = 'https://app.syncta.com/en/tests/750014/edit'
-// export const hosts = 'app.syncta.com'
-// export const iframeHosts = 'https://app.syncta.com'
-//
-// export default {
-//     hosts, iframeHosts, url
-// }
-
-// export const url = 'https://www.bsionlinetracking.com/testing-company/dashboard'
-// export const hosts = 'www.bsionlinetracking.com'
-// export const iframeHosts = 'https://www.bsionlinetracking.com'
-//
-// export default {
-//     hosts, iframeHosts, url
-// }
-
-//http://lvh.me:3000/en/tests/1074248
-var url = exports.url = 'https://9205527b.ngrok.io/en/tests/1074248/';
-var hosts = exports.hosts = '9205527b.ngrok.io';
-var iframeHosts = exports.iframeHosts = 'https://9205527b.ngrok.io';
+var url = exports.url = 'https://7dfc6225.ngrok.io/en/tests/1074248/';
+var hosts = exports.hosts = '7dfc6225.ngrok.io';
+var iframeHosts = exports.iframeHosts = 'https://7dfc6225.ngrok.io';
 
 exports.default = {
     hosts: hosts, iframeHosts: iframeHosts, url: url
+
+    // export const url = 'https://www.bsionlinetracking.com/testing-company/dashboard'
+    // export const hosts = 'www.bsionlinetracking.com'
+    // export const iframeHosts = 'https://www.bsionlinetracking.com'
+    //
+    // export default {
+    //     hosts, iframeHosts, url
+    // }
+
+    //http://lvh.me:3000/en/tests/1074248
+    // export const url = 'https://9205527b.ngrok.io/en/tests/1074248/edit'
+    // export const hosts = '9205527b.ngrok.io'
+    // export const iframeHosts = 'https://9205527b.ngrok.io'
+    //
+    // export default {
+    //     hosts, iframeHosts, url
+    // }
+
 };
 
 /***/ }),

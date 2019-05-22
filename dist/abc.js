@@ -1,5 +1,5 @@
-console.log('Browser Action Triggered');
-alert('hello worlds');
+// console.log('Browser Action Triggered');
+alert('hello worldsss');
 // debugger;
 
 // chrome.runtime.onConnect.addListener(function (port) {
@@ -15,6 +15,8 @@ alert('hello worlds');
 
 
 
+
+
 window.addEventListener("message", function(event) {
     // We only accept messages from ourselves
     if (event.source != window)
@@ -24,6 +26,7 @@ window.addEventListener("message", function(event) {
         console.log("Content script received: " + event.data.text);
         // var port = chrome.runtime.connect();
         // port.postMessage(event.data.text);
+        chrome.runtime.sendMessage( {type: "notification", options: {message: "Test"}} );
     }
 }, false);
 

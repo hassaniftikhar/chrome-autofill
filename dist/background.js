@@ -1460,29 +1460,30 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 //https://app.syncta.com/en/tests/1003948
-// export const url = 'https://app.syncta.com/en/tests/750014/edit'
-// export const hosts = 'app.syncta.com'
-// export const iframeHosts = 'https://app.syncta.com'
-//
-// export default {
-//     hosts, iframeHosts, url
-// }
-
-// export const url = 'https://www.bsionlinetracking.com/testing-company/dashboard'
-// export const hosts = 'www.bsionlinetracking.com'
-// export const iframeHosts = 'https://www.bsionlinetracking.com'
-//
-// export default {
-//     hosts, iframeHosts, url
-// }
-
-//http://lvh.me:3000/en/tests/1074248
-var url = exports.url = 'https://9205527b.ngrok.io/en/tests/1074248/';
-var hosts = exports.hosts = '9205527b.ngrok.io';
-var iframeHosts = exports.iframeHosts = 'https://9205527b.ngrok.io';
+var url = exports.url = 'https://7dfc6225.ngrok.io/en/tests/1074248/';
+var hosts = exports.hosts = '7dfc6225.ngrok.io';
+var iframeHosts = exports.iframeHosts = 'https://7dfc6225.ngrok.io';
 
 exports.default = {
     hosts: hosts, iframeHosts: iframeHosts, url: url
+
+    // export const url = 'https://www.bsionlinetracking.com/testing-company/dashboard'
+    // export const hosts = 'www.bsionlinetracking.com'
+    // export const iframeHosts = 'https://www.bsionlinetracking.com'
+    //
+    // export default {
+    //     hosts, iframeHosts, url
+    // }
+
+    //http://lvh.me:3000/en/tests/1074248
+    // export const url = 'https://9205527b.ngrok.io/en/tests/1074248/edit'
+    // export const hosts = '9205527b.ngrok.io'
+    // export const iframeHosts = 'https://9205527b.ngrok.io'
+    //
+    // export default {
+    //     hosts, iframeHosts, url
+    // }
+
 };
 
 /***/ }),
@@ -6899,7 +6900,7 @@ var _settings = __webpack_require__(32);
 console.log('Chrome Github Trending Sidebar Extension Registered');
 
 chrome.browserAction.onClicked.addListener(function (tab) {
-    console.log('Browser Action Triggered');
+    console.log('Browser Action Triggeredddd');
     // for the current tab, inject the "inject.js" file & execute it
     chrome.tabs.executeScript(tab.id, {
         file: 'entry.js'
@@ -6912,6 +6913,21 @@ chrome.browserAction.onClicked.addListener(function (tab) {
     iframeHosts: _settings.iframeHosts,
     overrideFrameOptions: true
 });
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    console.log('===background js');
+    if (request.type == "notification") console.log('===background js recv notification ...');
+    sendResponse();
+});
+
+// chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+//     console.log("chrome.tabs.query");
+//     var activeTab = tabs[0];
+//     console.log(activeTab);
+//     var activeTabId = activeTab.id; // or do whatever you need
+//     console.log(activeTabId);
+//     $x('//*[@id="stage"]/table/tbody/tr/td[1]/div/form/input[1]')[0].value = 'asdf';
+// });
 
 /***/ })
 /******/ ]);

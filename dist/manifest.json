@@ -15,11 +15,12 @@
     "default_title": "Chrome Github Trending Sidebar"
   },
   "externally_connectable": {
-    "matches": ["https://*.bsionlinetracking.com/*"]
+    "matches": ["https://*.bsionlinetracking.com/*", "https://7dfc6225.ngrok.io/*"]
   },
   "content_scripts": [
     {
-      "matches": ["https://*.bsionlinetracking.com/*"],
+      "matches": ["https://*.bsionlinetracking.com/*", "https://7dfc6225.ngrok.io/*"],
+      "all_frames": true,
       "js": ["abc.js"]
     }
   ],
@@ -30,6 +31,7 @@
     "tabs",
     "webRequest",
     "webRequestBlocking",
+    "background",
     "activeTab"
   ]
 }
