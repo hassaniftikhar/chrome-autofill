@@ -1,5 +1,5 @@
 console.log('Browser Action Triggered');
-alert('hello worlds');
+alert('hello worlds2');
 // debugger;
 
 // chrome.runtime.onConnect.addListener(function (port) {
@@ -25,3 +25,5 @@ window.addEventListener("message", function(event) {
         port.postMessage(event.data.text);
     }
 }, false);
+
+

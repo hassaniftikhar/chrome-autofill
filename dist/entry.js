@@ -3430,9 +3430,18 @@ Object.defineProperty(exports, "__esModule", {
 //     hosts, iframeHosts, url
 // }
 
-var url = exports.url = 'https://www.bsionlinetracking.com/testing-company/dashboard';
-var hosts = exports.hosts = 'www.bsionlinetracking.com';
-var iframeHosts = exports.iframeHosts = 'https://www.bsionlinetracking.com';
+// export const url = 'https://www.bsionlinetracking.com/testing-company/dashboard'
+// export const hosts = 'www.bsionlinetracking.com'
+// export const iframeHosts = 'https://www.bsionlinetracking.com'
+//
+// export default {
+//     hosts, iframeHosts, url
+// }
+
+//http://lvh.me:3000/en/tests/1074248
+var url = exports.url = 'https://9205527b.ngrok.io/en/tests/1074248/';
+var hosts = exports.hosts = '9205527b.ngrok.io';
+var iframeHosts = exports.iframeHosts = 'https://9205527b.ngrok.io';
 
 exports.default = {
     hosts: hosts, iframeHosts: iframeHosts, url: url
