@@ -19,3 +19,7 @@ function boot() {
 
     ReactDOM.render(App, root)
 }
+console.log('sending message')
+chrome.runtime.sendMessage({type: "notification", options: {
+        message: "some text here",
+    }});

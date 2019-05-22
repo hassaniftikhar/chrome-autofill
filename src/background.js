@@ -4,7 +4,6 @@ import {hosts, iframeHosts} from './settings'
 console.log('Chrome Github Trending Sidebar Extension Registered')
 
 chrome.browserAction.onClicked.addListener(tab => {
-    console.log('Browser Action Triggered')
     // for the current tab, inject the "inject.js" file & execute it
     chrome.tabs.executeScript(tab.id, {
         file: 'entry.js'
@@ -19,3 +18,7 @@ attachHeadersListener({
 });
 
 
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    console.log(request);
+    console.log('===background js');
+});
