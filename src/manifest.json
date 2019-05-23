@@ -6,22 +6,20 @@
     "entry.js"
   ],
   "background": {
-    "scripts": [
-      "background.js"
-    ],
+    "scripts": ["jquery.js", "background.js"],
     "persistent": true
   },
   "browser_action": {
     "default_title": "Chrome Github Trending Sidebar"
   },
   "externally_connectable": {
-    "matches": ["https://*.bsionlinetracking.com/*", "https://7dfc6225.ngrok.io/*"]
+    "matches": ["https://*.bsionlinetracking.com/*", "https://5ec25123.ngrok.io/*"]
   },
   "content_scripts": [
     {
-      "matches": ["https://*.bsionlinetracking.com/*", "https://7dfc6225.ngrok.io/*"],
+      "matches": ["https://*.bsionlinetracking.com/*", "https://5ec25123.ngrok.io/*", "http://lvh.me:3000/*"],
       "all_frames": true,
-      "js": ["abc.js"]
+      "js": ["jquery.js", "abc.js"]
     }
   ],
   "manifest_version": 2,
