@@ -63,21 +63,29 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 133);
+/******/ 	return __webpack_require__(__webpack_require__.s = 135);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 133:
+/***/ 135:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-    console.log(message);
-    $("[name='property_search_address']").val(message);
-});
+// console.log('Browser Action Triggered');
+console.log('hello worldsss');
+
+window.addEventListener("message", function (event) {
+    // We only accept messages from ourselves
+    if (event.source != window) return;
+
+    if (event.data.type && event.data.type == "FROM_PAGE") {
+        console.log("Content script received: " + event.data.text);
+        chrome.runtime.sendMessage({ type: "notification", message: event.data.text });
+    }
+}, false);
 
 /***/ })
 

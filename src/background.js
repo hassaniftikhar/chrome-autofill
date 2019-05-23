@@ -5,7 +5,6 @@ chrome.browserAction.onClicked.addListener(tab => {
     chrome.tabs.executeScript(tab.id, {
         file: 'entry.js'
     });
-
 });
 
 attachHeadersListener({
@@ -22,9 +21,13 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         console.log('===background js type: '+ request.message);
         var activeTab = tabs[0];
         var activeTabId = activeTab.id; // or do whatever you need
-        var code = '$("[name=' + "property_search_address" + ']").val('+ '"' + request.message + '"' + ');';
-        // chrome.tabs.executeScript(activeTabId, {file: "autofill.js"})
-        chrome.tabs.executeScript(activeTabId, {code: code})
+
+        // var code = '$("[name=' + "property_search_address" + ']").val('+ '"' + request.message + '"' + ');';
+        // chrome.tabs.executeScript(activeTabId, {code: code})
+        
+        chrome.tabs.executeScript(activeTabId, {file: 'autofill.js'}, function() {
+            chrome.tabs.sendMessage(activeTabId, request.message);
+        });
     });
     sendResponse();
 });

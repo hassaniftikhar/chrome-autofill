@@ -5,6 +5,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = {
   entry: {
     background: path.join(__dirname, './src/background'),
+    content_script: path.join(__dirname, './src/content_script'),
+    autofill: path.join(__dirname, './src/autofill'),
     entry: path.join(__dirname, './src/entry'),
 
   },
