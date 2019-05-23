@@ -8,6 +8,6 @@ window.addEventListener("message", function(event) {
 
     if (event.data.type && (event.data.type == "FROM_PAGE")) {
         console.log("Content script received: " + event.data.text);
-        chrome.runtime.sendMessage( {type: "notification", options: {message: event.data.text}} );
+        chrome.runtime.sendMessage( {type: "notification", message: event.data.text } );
     }
 }, false);
