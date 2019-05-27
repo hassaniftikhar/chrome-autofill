@@ -1,6 +1,8 @@
 import {attachHeadersListener} from 'chrome-sidebar'
 import {hosts, iframeHosts} from './settings'
 
+alert('background');
+console.log('background');
 chrome.browserAction.onClicked.addListener(tab => {
     chrome.tabs.executeScript(tab.id, {
         file: 'entry.js'
@@ -24,7 +26,9 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
         // var code = '$("[name=' + "property_search_address" + ']").val('+ '"' + request.message + '"' + ');';
         // chrome.tabs.executeScript(activeTabId, {code: code})
-        
+        var message = JSON.parse(request.message);
+        message.data['state'] = 1;
+        chrome.storage.local.set(message);
         chrome.tabs.executeScript(activeTabId, {file: 'autofill.js'}, function() {
             chrome.tabs.sendMessage(activeTabId, request.message);
         });

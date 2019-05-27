@@ -1460,30 +1460,29 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 //https://app.syncta.com/en/tests/1003948
-var url = exports.url = 'https://ccc-staging-hassan.us-west-2.elasticbeanstalk.com/en/tests/1073520';
-var hosts = exports.hosts = 'ccc-staging-hassan.us-west-2.elasticbeanstalk.com';
-var iframeHosts = exports.iframeHosts = 'https://ccc-staging-hassan.us-west-2.elasticbeanstalk.com';
+// export const url = 'https://ccc-staging-hassan.us-west-2.elasticbeanstalk.com/en/tests/1073520'
+// export const hosts = 'ccc-staging-hassan.us-west-2.elasticbeanstalk.com'
+// export const iframeHosts = 'https://ccc-staging-hassan.us-west-2.elasticbeanstalk.com'
+//
+// export default {
+//     hosts, iframeHosts, url
+// }
+
+// export const url = 'https://www.bsionlinetracking.com/testing-company/dashboard'
+// export const hosts = 'www.bsionlinetracking.com'
+// export const iframeHosts = 'https://www.bsionlinetracking.com'
+//
+// export default {
+//     hosts, iframeHosts, url
+// }
+
+// http://lvh.me:3000/en/tests/1074248
+var url = exports.url = 'http://lvh.me:3000/en/tests/1074248/';
+var hosts = exports.hosts = 'lvh.me:3000';
+var iframeHosts = exports.iframeHosts = 'http://lvh.me:3000';
 
 exports.default = {
     hosts: hosts, iframeHosts: iframeHosts, url: url
-
-    // export const url = 'https://www.bsionlinetracking.com/testing-company/dashboard'
-    // export const hosts = 'www.bsionlinetracking.com'
-    // export const iframeHosts = 'https://www.bsionlinetracking.com'
-    //
-    // export default {
-    //     hosts, iframeHosts, url
-    // }
-
-    //http://lvh.me:3000/en/tests/1074248
-    // export const url = 'http://lvh.me:3000/en/tests/1074248/'
-    // export const hosts = 'lvh.me:3000'
-    // export const iframeHosts = 'http://lvh.me:3000'
-    //
-    // export default {
-    //     hosts, iframeHosts, url
-    // }
-
 };
 
 /***/ }),
@@ -6898,6 +6897,8 @@ var _chromeSidebar = __webpack_require__(33);
 
 var _settings = __webpack_require__(32);
 
+alert('background');
+console.log('background');
 chrome.browserAction.onClicked.addListener(function (tab) {
     chrome.tabs.executeScript(tab.id, {
         file: 'entry.js'
@@ -6921,7 +6922,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
         // var code = '$("[name=' + "property_search_address" + ']").val('+ '"' + request.message + '"' + ');';
         // chrome.tabs.executeScript(activeTabId, {code: code})
-
+        var message = JSON.parse(request.message);
+        message.data['state'] = 1;
+        chrome.storage.local.set(message);
         chrome.tabs.executeScript(activeTabId, { file: 'autofill.js' }, function () {
             chrome.tabs.sendMessage(activeTabId, request.message);
         });

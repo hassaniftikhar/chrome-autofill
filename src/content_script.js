@@ -1,6 +1,5 @@
-// console.log('Browser Action Triggered');
-console.log('hello worldsss');
-
+// alert('content script');
+console.log('content script');
 window.addEventListener("message", function(event) {
     // We only accept messages from ourselves
     if (event.source != window)
@@ -11,3 +10,8 @@ window.addEventListener("message", function(event) {
         chrome.runtime.sendMessage( {type: "notification", message: event.data.text } );
     }
 }, false);
+
+function determineState() {
+    var ccn = window.location.href.split('szCCN=')[1];
+    var message = chrome.storage.local.get([ccn]);
+}

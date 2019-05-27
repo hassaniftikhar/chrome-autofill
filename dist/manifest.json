@@ -17,7 +17,8 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://*.bsionlinetracking.com/*", "https://5ec25123.ngrok.io/*", "http://lvh.me:3000/*",
+      "matches": ["https://*.bsionlinetracking.com/*",
+                  "http://lvh.me:3000/*",
                   "https://ccc-staging-hassan.us-west-2.elasticbeanstalk.com/*"],
       "all_frames": true,
       "js": ["jquery.js", "content_script.js"]
@@ -31,6 +32,7 @@
     "webRequest",
     "webRequestBlocking",
     "background",
-    "activeTab"
+    "activeTab",
+    "storage"
   ]
 }
