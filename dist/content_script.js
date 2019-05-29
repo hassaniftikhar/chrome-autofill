@@ -82,14 +82,27 @@ window.addEventListener("message", function (event) {
 
     if (event.data.type && event.data.type == "FROM_PAGE") {
         console.log("Content script received: " + event.data.text);
-        chrome.runtime.sendMessage({ type: "notification", message: event.data.text });
+        chrome.runtime.sendMessage({ type: "fill_bsi", message: event.data.text });
     }
 }, false);
 
-function determineState() {
+window.addEventListener("load", function () {
+    console.log('event: load');
+    console.log('activateProcess');
     var ccn = window.location.href.split('szCCN=')[1];
-    var message = chrome.storage.local.get([ccn]);
-}
+    console.log('autofill ccn from url: ' + ccn);
+    if (ccn) {
+        chrome.storage.local.get(['data'], function (result) {
+            console.log('Value currently is ' + result.data);
+            chrome.runtime.sendMessage({ type: "fill_bsi", message: JSON.stringify(result) });
+        });
+    }
+});
+
+// function activateProcess() {
+// }
+//
+// activateProcess();
 
 /***/ })
 
